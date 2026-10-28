@@ -1,4 +1,4 @@
-﻿{
+{
     "name":  "techflow",
     "version":  "1.0.0",
     "description":  "Teknik bilgi ve not yönetim uygulaması",
@@ -47,7 +47,8 @@
                                "oneClick":  false,
                                "allowToChangeInstallationDirectory":  true,
                                "createDesktopShortcut":  true,
-                               "createStartMenuShortcut":  true
+                               "createStartMenuShortcut":  true,
+                               "artifactName":  "TechFlow-Setup-${version}-${arch}.${ext}"
                            },
                   "artifactName":  "TechFlow-${version}-${arch}.${ext}",
                   "linux":  {
@@ -56,9 +57,11 @@
                                                "deb"
                                            ],
                                 "category":  "Utility",
-                                "synopsis":  "Technical note and documentation manager",
-                                "description":  "A desktop application for organizing technical notes, commands and documentation."
-                            }
+                                "synopsis":  "Technical note and documentation manager"
+                            },
+                  "portable":  {
+                                   "artifactName":  "TechFlow-Portable-${version}-${arch}.${ext}"
+                               }
               },
     "dependencies":  {
                          "lucide":  "^1.47.0"
