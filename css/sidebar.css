@@ -1,0 +1,510 @@
+/* ================================ */
+/* SIDEBAR */
+/* ================================ */
+
+#sidebar {
+    display: flex;
+    flex-direction: column;
+
+    width: var(--sidebar-width);
+    height: 100vh;
+
+    flex-shrink: 0;
+
+    background: var(--sidebar-bg);
+
+    border-right: 1px solid var(--border);
+}
+
+
+/* ================================ */
+/* SIDEBAR HEADER */
+/* ================================ */
+
+.sidebar-header {
+    height: 48px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0 14px 0 18px;
+
+    color: var(--muted);
+
+    font-size: 12px;
+    font-weight: 600;
+
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+
+#new-folder-button {
+    width: 28px;
+    height: 28px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 0;
+
+    border: 0;
+    border-radius: var(--radius-small);
+
+    background: transparent;
+
+    color: var(--muted);
+
+    cursor: pointer;
+
+    transition:
+        background-color 0.15s ease,
+        color 0.15s ease;
+}
+
+
+#new-folder-button:hover {
+    background: var(--hover);
+
+    color: var(--text);
+}
+
+
+#new-folder-button svg {
+    width: 16px;
+    height: 16px;
+
+    stroke-width: 1.8;
+}
+
+
+/* ================================ */
+/* FOLDER LIST */
+/* ================================ */
+
+#folder-list {
+    flex: 1;
+
+    overflow-y: auto;
+
+    padding: 4px 8px 10px;
+}
+
+
+#folder-list::-webkit-scrollbar {
+    width: 6px;
+}
+
+
+#folder-list::-webkit-scrollbar-thumb {
+    background: var(--scrollbar);
+
+    border-radius: 10px;
+}
+
+
+/* ================================ */
+/* FOLDER */
+/* ================================ */
+
+.folder-container {
+    width: 100%;
+
+    margin-bottom: 3px;
+}
+
+
+.folder-row {
+    width: 100%;
+    min-height: 34px;
+
+    display: flex;
+    align-items: center;
+
+    gap: 8px;
+
+    padding: 0 9px;
+
+    border: 0;
+    border-radius: var(--radius-medium);
+
+    background: transparent;
+
+    color: var(--text);
+
+    text-align: left;
+
+    font-size: 13px;
+    font-weight: 500;
+
+    cursor: pointer;
+
+    transition:
+        background-color 0.15s ease,
+        color 0.15s ease;
+}
+
+
+.folder-row:hover {
+    background: var(--hover);
+}
+
+
+.folder-row.active {
+    background: var(--active);
+}
+
+
+.folder-row svg {
+    width: 15px;
+    height: 15px;
+
+    flex-shrink: 0;
+
+    stroke-width: 1.8;
+}
+
+
+.folder-row span {
+    overflow: hidden;
+
+    white-space: nowrap;
+
+    text-overflow: ellipsis;
+}
+
+
+/* ================================ */
+/* NOTE LIST */
+/* ================================ */
+
+.note-list {
+    display: flex;
+    flex-direction: column;
+
+    gap: 2px;
+
+    padding-top: 4px;
+    padding-left: 18px;
+}
+
+
+/* ================================ */
+/* NOTE ITEM */
+/* ================================ */
+
+.note-item {
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+
+    min-width: 0;
+}
+
+
+/* ================================ */
+/* NOTE BUTTON */
+/* ================================ */
+
+.note-row {
+    min-width: 0;
+    flex: 1;
+
+    height: 32px;
+
+    display: flex;
+    align-items: center;
+
+    gap: 8px;
+
+    padding: 0 9px;
+
+    border: 0;
+    border-radius: var(--radius-medium);
+
+    background: transparent;
+
+    color: var(--muted);
+
+    text-align: left;
+
+    font-size: 12px;
+
+    cursor: pointer;
+
+    transition:
+        background-color 0.15s ease,
+        color 0.15s ease;
+}
+
+
+.note-row:hover {
+    background: var(--hover);
+
+    color: var(--text);
+}
+
+
+.note-row.active {
+    background: var(--active);
+
+    color: var(--text);
+}
+
+
+.note-row svg {
+    width: 15px;
+    height: 15px;
+
+    flex-shrink: 0;
+
+    stroke-width: 1.8;
+}
+
+
+.note-row span {
+    overflow: hidden;
+
+    white-space: nowrap;
+
+    text-overflow: ellipsis;
+}
+
+
+/* ================================ */
+/* NOTE DELETE */
+/* ================================ */
+
+.note-delete {
+    width: 28px;
+    height: 28px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    flex-shrink: 0;
+
+    margin-left: 3px;
+
+    padding: 0;
+
+    border: 0;
+    border-radius: var(--radius-small);
+
+    background: transparent;
+
+    color: var(--muted);
+
+    opacity: 0;
+
+    cursor: pointer;
+
+    transition:
+        opacity 0.15s ease,
+        background-color 0.15s ease,
+        color 0.15s ease;
+}
+
+
+.note-item:hover .note-delete,
+.note-item:focus-within .note-delete {
+    opacity: 1;
+}
+
+
+.note-delete svg {
+    width: 14px;
+    height: 14px;
+
+    stroke-width: 1.8;
+}
+
+
+.note-delete:hover {
+    background: rgba(239, 107, 115, 0.12);
+
+    color: var(--danger);
+}
+
+
+/* ================================ */
+/* SIDEBAR BOTTOM */
+/* ================================ */
+
+.sidebar-bottom {
+    padding: 12px;
+
+    border-top: 1px solid var(--border);
+}
+
+
+.sidebar-bottom button {
+    width: 100%;
+    height: 38px;
+
+    display: flex;
+    align-items: center;
+
+    gap: 9px;
+
+    padding: 0 12px;
+
+    border-radius: var(--radius-medium);
+
+    background: transparent;
+
+    color: var(--text);
+
+    text-align: left;
+
+    font-size: 13px;
+
+    cursor: pointer;
+
+    transition:
+        background-color 0.15s ease,
+        color 0.15s ease;
+}
+
+
+.sidebar-bottom button:hover {
+    background: var(--hover);
+}
+
+
+.sidebar-bottom button svg {
+    width: 16px;
+    height: 16px;
+
+    flex-shrink: 0;
+
+    stroke-width: 1.8;
+}
+
+
+/* ================================ */
+/* NEW NOTE */
+/* ================================ */
+
+#new-note-button {
+    margin-bottom: 4px;
+
+    background: var(--surface);
+
+    border: 1px solid var(--border);
+}
+
+
+#new-note-button:hover {
+    background: var(--hover);
+}
+
+
+/* ================================ */
+/* SETTINGS */
+/* ================================ */
+
+#settings-button {
+    border: 1px solid transparent;
+}
+
+
+/* ================================ */
+/* FOLDER CONTEXT MENU */
+/* ================================ */
+
+.context-menu {
+    position: fixed;
+
+    z-index: 2000;
+
+    min-width: 150px;
+
+    padding: 4px;
+
+    border: 1px solid var(--border);
+
+    border-radius: var(--radius-medium);
+
+    background: var(--surface);
+
+    box-shadow:
+        0 10px 30px rgba(0, 0, 0, 0.35);
+
+    opacity: 0;
+
+    pointer-events: none;
+
+    transform:
+        scale(0.96)
+        translateY(-2px);
+
+    transform-origin: top left;
+
+    transition:
+        opacity 0.12s ease,
+        transform 0.12s ease;
+}
+
+
+.context-menu.visible {
+    opacity: 1;
+
+    pointer-events: auto;
+
+    transform:
+        scale(1)
+        translateY(0);
+}
+
+
+.context-menu button {
+    width: 100%;
+    height: 34px;
+
+    display: flex;
+    align-items: center;
+
+    gap: 9px;
+
+    padding: 0 9px;
+
+    border: 0;
+
+    border-radius: var(--radius-small);
+
+    background: transparent;
+
+    color: var(--text);
+
+    text-align: left;
+
+    font-size: 12px;
+
+    cursor: pointer;
+}
+
+
+.context-menu button:hover {
+    background:
+        rgba(239, 107, 115, 0.10);
+}
+
+
+.context-menu-danger {
+    color: var(--danger) !important;
+}
+
+
+.context-menu button svg {
+    width: 15px;
+    height: 15px;
+
+    flex-shrink: 0;
+
+    stroke-width: 1.8;
+}

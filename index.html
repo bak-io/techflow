@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>TechFlow</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="./css/variables.css">
+    <link rel="stylesheet" href="./css/layout.css">
+    <link rel="stylesheet" href="./css/sidebar.css">
+    <link rel="stylesheet" href="./css/workspace.css">
+    <link rel="stylesheet" href="./css/blocks.css">
+    <link rel="stylesheet" href="./css/modal.css">
+</head>
+
+<body>
+
+    <div id="app">
+
+        <!-- SIDEBAR -->
+
+        <aside id="sidebar">
+
+    
+
+
+            <div class="sidebar-header">
+
+                <span>
+                    Sayfalar
+                </span>
+
+                <button
+                    id="new-folder-button"
+                    title="Yeni klasör"
+                >
+                    <i data-lucide="folder-plus"></i>
+                </button>
+
+            </div>
+
+
+            <div id="folder-list"></div>
+
+
+            <div class="sidebar-bottom">
+
+                <button id="new-note-button">
+
+                    <i data-lucide="file-plus"></i>
+
+                    <span>
+                        Yeni Sayfa
+                    </span>
+
+                </button>
+
+
+                <button id="settings-button">
+
+                    <i data-lucide="settings"></i>
+
+                    <span>
+                        Ayarlar
+                    </span>
+
+                </button>
+
+            </div>
+
+        </aside>
+
+
+        <!-- WORKSPACE -->
+
+        <main id="workspace">
+
+
+            <!-- TOPBAR -->
+
+            <header id="topbar">
+
+                <div class="page-title">
+
+                    <i
+                        data-lucide="file-text"
+                        class="page-icon"
+                    ></i>
+
+                    <h1 id="page-title">
+                        TechFlow
+                    </h1>
+
+                </div>
+
+
+                <div class="topbar-actions">
+
+                    <span id="save-status">
+
+                        <i data-lucide="check"></i>
+
+                        <span>
+                            Otomatik kayıt
+                        </span>
+
+                    </span>
+
+
+                    <button id="search-button">
+
+                        <i data-lucide="search"></i>
+
+                        <span>
+                            Ara
+                        </span>
+
+                    </button>
+
+                </div>
+
+            </header>
+
+
+            <!-- CONTENT -->
+
+            <section id="content">
+
+                <div id="editor">
+
+                    <div id="empty-workspace">
+
+                        <i
+                            data-lucide="notebook-tabs"
+                            class="empty-icon"
+                        ></i>
+
+                        <h2>
+                            Henüz sayfa yok
+                        </h2>
+
+                        <p>
+                            Yeni bir sayfa oluşturarak başlayabilirsin.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+        </main>
+
+    </div>
+	<dialog id="input-modal">
+
+    <div class="modal">
+
+        <h2 id="input-modal-title">
+            Yeni Klasör
+        </h2>
+
+        <input
+            id="input-modal-input"
+            type="text"
+            autocomplete="off"
+        >
+
+        <div class="modal-actions">
+
+            <button
+                id="input-modal-cancel"
+                class="modal-cancel"
+            >
+                İptal
+            </button>
+
+            <button
+                id="input-modal-confirm"
+                class="modal-confirm"
+            >
+                Oluştur
+            </button>
+
+        </div>
+
+    </div>
+
+</dialog>
+
+<dialog id="delete-modal">
+
+    <div class="modal delete-modal">
+
+        <div class="delete-modal-icon">
+            <i data-lucide="trash-2"></i>
+        </div>
+
+        <h2>
+            Sayfayı sil
+        </h2>
+
+        <p id="delete-modal-message">
+            Bu sayfayı silmek istediğine emin misin?
+        </p>
+
+        <div class="modal-actions">
+
+            <button
+                id="delete-modal-cancel"
+                class="modal-cancel"
+                type="button"
+            >
+                İptal
+            </button>
+
+            <button
+                id="delete-modal-confirm"
+                class="modal-confirm delete-confirm"
+                type="button"
+            >
+                Sil
+            </button>
+
+        </div>
+
+    </div>
+
+</dialog>
+
+<dialog id="search-modal">
+
+    <div class="modal search-modal">
+
+        <h2>
+            Sayfalarda Ara
+        </h2>
+
+        <input
+            id="search-input"
+            type="text"
+            placeholder="Komut, sayfa veya içerik ara..."
+            autocomplete="off"
+        >
+
+        <div id="search-results"></div>
+
+        <div class="modal-actions">
+
+            <button
+                class="modal-cancel"
+                onclick="document.getElementById('search-modal').close()"
+            >
+                Kapat
+            </button>
+
+        </div>
+
+    </div>
+
+</dialog>
+<dialog id="settings-modal">
+
+    <div class="modal settings-modal">
+
+        <h2>
+            Ayarlar
+        </h2>
+
+        <p class="settings-description">
+            TechFlow verilerini JSON olarak yönet.
+        </p>
+
+
+        <div class="settings-actions">
+
+            <button
+                id="import-json-button"
+                type="button"
+            >
+                <i data-lucide="upload"></i>
+                <span>
+                    JSON İçe Aktar
+                </span>
+            </button>
+
+
+            <button
+                id="export-json-button"
+                type="button"
+            >
+                <i data-lucide="download"></i>
+                <span>
+                    JSON Dışa Aktar
+                </span>
+            </button>
+
+
+            <button
+                id="backup-json-button"
+                type="button"
+            >
+                <i data-lucide="archive"></i>
+                <span>
+                    Şimdi Yedekle
+                </span>
+            </button>
+
+        </div>
+
+
+        <p
+            id="settings-status"
+            class="settings-status"
+        ></p>
+
+
+        <div class="modal-actions">
+
+            <button
+                id="settings-close-button"
+                class="modal-cancel"
+                type="button"
+            >
+                Kapat
+            </button>
+
+        </div>
+
+    </div>
+
+</dialog>
+
+
+    <!-- JavaScript -->
+
+<dialog id="input-modal">
+
+    <div class="modal">
+
+        <h2 id="input-modal-title">
+            Yeni Klasör
+        </h2>
+
+        <input
+            id="input-modal-input"
+            type="text"
+            autocomplete="off"
+        >
+
+        <div class="modal-actions">
+
+            <button
+                id="input-modal-cancel"
+                class="modal-cancel"
+            >
+                İptal
+            </button>
+
+            <button
+                id="input-modal-confirm"
+                class="modal-confirm"
+            >
+                Oluştur
+            </button>
+
+        </div>
+
+    </div>
+
+</dialog>
+
+
+<dialog id="search-modal">
+
+    <div class="modal search-modal">
+
+        <h2>
+            Sayfalarda Ara
+        </h2>
+
+        <input
+            id="search-input"
+            type="text"
+            placeholder="Komut, sayfa veya içerik ara..."
+            autocomplete="off"
+        >
+
+        <div id="search-results"></div>
+
+        <div class="modal-actions">
+
+            <button
+                class="modal-cancel"
+                onclick="document.getElementById('search-modal').close()"
+            >
+                Kapat
+            </button>
+
+        </div>
+
+    </div>
+<script src="./node_modules/lucide/dist/umd/lucide.js"></script>
+<script type="module" src="./js/main.js"></script>
+</dialog>
+</body>
+
+</html>

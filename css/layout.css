@@ -1,0 +1,60 @@
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family:
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        Arial,
+        sans-serif;
+
+    background: var(--bg);
+    color: var(--text);
+
+    overflow: hidden;
+}
+
+button,
+input,
+textarea {
+    font: inherit;
+}
+
+button {
+    border: 0;
+    cursor: pointer;
+}
+
+#app {
+    display: flex;
+
+    width: 100%;
+    height: 100vh;
+}
+
+#sidebar {
+    width: var(--sidebar-width);
+    height: 100vh;
+
+    flex-shrink: 0;
+}
+
+#workspace {
+    flex: 1;
+
+    min-width: 0;
+    height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+}

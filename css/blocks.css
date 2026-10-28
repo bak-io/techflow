@@ -1,0 +1,469 @@
+/* ================================ */
+/* BLOCK */
+/* ================================ */
+
+.block {
+    position: relative;
+
+    margin-bottom: 14px;
+
+    overflow: hidden;
+
+    background: var(--surface);
+
+    border: 1px solid var(--border);
+    border-radius: var(--radius-medium);
+}
+
+
+/* ================================ */
+/* BLOCK HEADER */
+/* ================================ */
+
+.block-header {
+    width: 100%;
+    height: 38px;
+
+    display: flex;
+    align-items: center;
+
+    padding: 0 8px 0 12px;
+
+    background: var(--surface-alt);
+
+    border-bottom: 1px solid var(--border);
+}
+
+
+.block-type {
+    display: flex;
+    align-items: center;
+
+    gap: 7px;
+
+    color: var(--muted);
+
+    font-size: 11px;
+    font-weight: 600;
+
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+
+.block-type svg {
+    width: 14px;
+    height: 14px;
+
+    stroke-width: 1.8;
+}
+
+
+/* ================================ */
+/* BLOCK ACTIONS */
+/* ================================ */
+
+.block-actions {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+
+    gap: 4px;
+
+    margin-left: auto;
+}
+
+
+.block-action {
+    width: 28px;
+    height: 28px;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    flex-shrink: 0;
+
+    padding: 0;
+
+    border: 0;
+    border-radius: var(--radius-small);
+
+    background: transparent;
+
+    color: var(--muted);
+
+    cursor: pointer;
+
+    transition:
+        background-color 0.15s ease,
+        color 0.15s ease;
+}
+
+
+.block-action:hover {
+    background: var(--hover);
+
+    color: var(--text);
+}
+
+
+.block-action svg {
+    width: 15px;
+    height: 15px;
+
+    display: block;
+
+    stroke-width: 1.8;
+}
+
+
+/* COPY */
+
+.copy-button {
+    order: 1;
+}
+
+
+/* DELETE */
+
+.block-delete {
+    order: 2;
+}
+
+
+.block-delete:hover {
+    background: rgba(239, 107, 115, 0.12);
+
+    color: var(--danger);
+}
+
+
+/* ================================ */
+/* BLOCK BODY */
+/* ================================ */
+
+.block-body {
+    padding: 12px;
+}
+
+
+.block-body textarea {
+    width: 100%;
+
+    min-height: 82px;
+
+    display: block;
+
+    resize: vertical;
+
+    padding: 9px 10px;
+
+    border: 1px solid var(--border);
+    border-radius: var(--radius-small);
+
+    outline: none;
+
+    background: var(--surface);
+
+    color: var(--text);
+
+    line-height: 1.5;
+}
+
+
+.block-body textarea:focus {
+    border-color: var(--border-focus);
+}
+
+
+/* ================================ */
+/* TERMINAL / COMMAND */
+/* ================================ */
+
+.block.command {
+    background: var(--terminal-bg);
+
+    border-color: var(--terminal-border);
+}
+
+
+.block.command .block-header {
+    background: var(--terminal-surface);
+
+    border-bottom-color: var(--terminal-border);
+}
+
+
+.block.command .block-type {
+    color: var(--terminal-muted);
+}
+
+
+.block.command .block-type svg {
+    color: var(--terminal-muted);
+}
+
+
+.block.command .block-action {
+    color: var(--terminal-muted);
+}
+
+
+.block.command .block-action:hover {
+    background: rgba(255, 255, 255, 0.08);
+
+    color: var(--terminal-text);
+}
+
+
+/* COMMAND BODY */
+
+.block-body.command {
+    display: flex;
+    align-items: flex-start;
+
+    gap: 10px;
+
+    padding: 14px 16px;
+
+    background: var(--terminal-bg);
+}
+
+
+/* TERMINAL PROMPT */
+
+.terminal-prompt {
+    display: block;
+
+    flex-shrink: 0;
+
+    padding-top: 8px;
+
+    color: var(--terminal-prompt);
+
+    font-family:
+        Consolas,
+        "Courier New",
+        monospace;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    line-height: 1.6;
+}
+
+
+/* COMMAND TEXTAREA */
+
+.block-body.command textarea {
+    flex: 1;
+
+    min-height: 54px;
+
+    margin: 0;
+    padding: 7px 0;
+
+    border: 0;
+
+    resize: vertical;
+
+    outline: none;
+
+    background: transparent;
+
+    color: var(--terminal-text);
+
+    font-family:
+        Consolas,
+        "Courier New",
+        monospace;
+
+    font-size: 13px;
+
+    line-height: 1.6;
+
+    caret-color: var(--terminal-text);
+}
+
+
+.block-body.command textarea:focus {
+    border: 0;
+}
+
+
+.block-body.command textarea::placeholder {
+    color: var(--terminal-muted);
+}
+
+
+/* ================================ */
+/* CODE */
+/* ================================ */
+
+.block.code {
+    background: var(--terminal-bg);
+
+    border-color: var(--terminal-border);
+}
+
+
+.block.code .block-header {
+    background: var(--terminal-surface);
+
+    border-bottom-color: var(--terminal-border);
+}
+
+
+.block.code .block-type {
+    color: var(--terminal-muted);
+}
+
+
+.block.code .block-type svg {
+    color: var(--terminal-muted);
+}
+
+
+.block.code .block-action {
+    color: var(--terminal-muted);
+}
+
+
+.block.code .block-action:hover {
+    background: rgba(255, 255, 255, 0.08);
+
+    color: var(--terminal-text);
+}
+
+
+/* CODE BODY */
+
+.block-body.code {
+    padding: 14px 16px 16px;
+
+    background: var(--terminal-bg);
+}
+
+
+/* CODE TEXTAREA */
+
+.block-body.code textarea {
+    min-height: 120px;
+
+    padding: 7px 0;
+
+    border: 0;
+
+    resize: vertical;
+
+    outline: none;
+
+    background: transparent;
+
+    color: var(--terminal-text);
+
+    font-family:
+        Consolas,
+        "Courier New",
+        monospace;
+
+    font-size: 13px;
+
+    line-height: 1.6;
+
+    caret-color: var(--terminal-test);
+}
+
+
+.block-body.code textarea:focus {
+    border: 0;
+}
+
+
+.block-body.code textarea::placeholder {
+    color: var(--terminal-muted);
+}
+
+
+/* ================================ */
+/* TERMINAL SELECTION */
+/* ================================ */
+
+.block.command textarea::selection,
+.block.code textarea::selection {
+    background: rgba(126, 231, 135, 0.22);
+
+    color: var(--terminal-text);
+}
+
+
+/* ================================ */
+/* NORMAL BLOCKS */
+/* ================================ */
+
+.block.text .block-body,
+.block.error .block-body,
+.block.solution .block-body,
+.block.result .block-body {
+    padding: 12px;
+}
+
+
+/* ================================ */
+/* BLOCK TOOLBAR */
+/* ================================ */
+
+.block-toolbar {
+    display: flex;
+    flex-wrap: wrap;
+
+    gap: 6px;
+
+    margin-top: 10px;
+}
+
+
+.block-toolbar button {
+    height: 32px;
+
+    padding: 0 10px;
+
+    border: 1px solid var(--border);
+    border-radius: var(--radius-small);
+
+    background: var(--surface);
+
+    color: var(--muted);
+
+    font-size: 12px;
+
+    cursor: pointer;
+
+    transition:
+        background-color 0.15s ease,
+        color 0.15s ease;
+}
+
+
+.block-toolbar button:hover {
+    background: var(--hover);
+
+    color: var(--text);
+}
+
+/* ================================ */
+/* SEARCH FOCUS */
+/* ================================ */
+
+.block.search-focus {
+    border-color: var(--accent);
+
+    box-shadow:
+        0 0 0 1px var(--accent),
+        0 0 18px rgba(16, 163, 127, 0.16);
+
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+}
