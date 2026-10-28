@@ -5,7 +5,8 @@
     "main":  "main.js",
     "scripts":  {
                     "start":  "electron .",
-                    "build":  "electron-builder --win"
+                    "build":  "electron-builder --win",
+                    "build:linux":  "electron-builder --linux AppImage deb --x64"
                 },
     "keywords":  [
                      "electron",
@@ -48,7 +49,16 @@
                                "createDesktopShortcut":  true,
                                "createStartMenuShortcut":  true
                            },
-                  "artifactName":  "TechFlow-${version}-${arch}.${ext}"
+                  "artifactName":  "TechFlow-${version}-${arch}.${ext}",
+                  "linux":  {
+                                "target":  [
+                                               "AppImage",
+                                               "deb"
+                                           ],
+                                "category":  "Utility",
+                                "synopsis":  "Technical note and documentation manager",
+                                "description":  "A desktop application for organizing technical notes, commands and documentation."
+                            }
               },
     "dependencies":  {
                          "lucide":  "^1.47.0"
